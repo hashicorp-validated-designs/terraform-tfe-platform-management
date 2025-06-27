@@ -7,7 +7,7 @@ module "appteam_workspace_only" {
 
   workspace_name = "my-new-ws"
   workspace_desc = "Description of my new Workspace."
-  workspace_maps_tags = {
+  workspace_map_tags = {
     "env" = "dev"
     "team" = "app-team-1"
   }
