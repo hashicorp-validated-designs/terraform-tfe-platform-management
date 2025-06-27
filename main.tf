@@ -34,6 +34,7 @@ resource "github_repository" "mgmt_repository" {
     }
   }
 }
+
 # TFE Resources
 
 resource "tfe_project" "landing_zone" {
