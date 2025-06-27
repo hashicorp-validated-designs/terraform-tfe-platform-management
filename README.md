@@ -1,8 +1,8 @@
 # terraform-tfe-platform-management
 
-This repo is intended to provide prescriptive guidance and automation on how to accelerate the configuration of your HCP Terraform organization for usage with landing zones. 
+This repo is intended to provide prescriptive guidance and automation on how to accelerate the configuration of your HCP Terraform organization for usage with Terraform Landing Zones. 
 
-In this guide we will review the prerequisites for setting up your HCP Terraform organization for the Landing Zone (LZ) process. Once completed, you'll be able to use this module to deploy "management" workspaces as defined in the HVD operating Terraform guide.
+In this guide we will review the prerequisites for setting up your HCP Terraform organization for the Terraform Landing Zone (TLZ) process. Once completed, you'll be able to use this module to deploy "management" workspaces as defined in the HVD operating Terraform guide.
 
 This module deploys:
 - HCP TF Project for organizing a teams workspaces 
@@ -28,16 +28,15 @@ These steps are to be performed in the HCP Terraform UI as part of your initial 
 
 For each project landing zone that you want to deploy, simply add a module block into your configuration with the appropriate input values set, as per the example below:
 
-
 ### With Github repo and VCS backed workspace:
 _Note: when you create a workspace with a repo, the repo must not be empty. In this module we require sourcing a GitHub repo template to circumvent and to encourage common practices via templates_
 ```hcl
-module "bu_app_lz_example_2" {
-  source = "hashicorp/hvd-accelerator/tfe"
+module "bu_app_TLZ_example_2" {
+  source = "hashicorp/platform-management/tfe"
 
   organization = var.organization
-  project_name = "bu-app-lz-example-2"
-  team_name    = "bu-app-lz-example-2"
+  project_name = "bu-app-TLZ-example-2"
+  team_name    = "bu-app-TLZ-example-2"
   
   gh_create_vcs_repo     = true
   gh_app_id              = var.gh_app_id
@@ -48,12 +47,12 @@ module "bu_app_lz_example_2" {
 
 ### Without a GitHub repo and VCS backed workspace:
 ```hcl
-module "bu_app_lz_example_1" {
-  source = "hashicorp/hvd-accelerator/tfe"
+module "bu_app_TLZ_example_1" {
+  source = "hashicorp/platform-management/tfe"
 
   organization = var.organization
-  project_name = "bu-app-lz-example-1"
-  team_name    = "bu-app-lz-example-1"
+  project_name = "bu-app-TLZ-example-1"
+  team_name    = "bu-app-TLZ-example-1"
 }
 ```
 
